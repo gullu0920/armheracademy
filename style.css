@@ -1,0 +1,229 @@
+/* Base & Reset */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background: #f7f7f7;
+  color: #222;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+a {
+  color: #e63946;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header & Nav */
+header {
+  background: #e63946;
+  color: white;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+header .logo {
+  display: flex;
+  align-items: center;
+}
+header .logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+nav a {
+  font-weight: 600;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+nav a:hover, nav a.active {
+  background-color: #d62828;
+  border-radius: 4px;
+  color: white;
+}
+
+/* Hamburger Menu for mobile */
+#menu-toggle {
+  display: none;
+}
+label[for="menu-toggle"] {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 25px;
+  height: 20px;
+  justify-content: space-between;
+}
+label[for="menu-toggle"] span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Main content */
+main {
+  max-width: 1000px;
+  margin: 100px auto 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+}
+section {
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
+}
+section.visible {
+  opacity: 1;
+  transform: none;
+}
+h2 {
+  margin-bottom: 1rem;
+  color: #d62828;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+thead th {
+  background-color: #d62828;
+  color: white;
+  padding: 0.75rem;
+}
+tbody td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+/* Gallery */
+.gallery-img {
+  width: 48%;
+  margin: 1% 1% 1% 0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+/* Lightbox */
+#lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+#lightbox.show {
+  display: flex;
+}
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px white;
+}
+#lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Admission iframe */
+section#admission iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Contact links */
+#contact a {
+  color: #d62828;
+  font-weight: 600;
+}
+
+/* WhatsApp floating button */
+#whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+#whatsapp-btn:hover {
+  background-color: #128c44;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background: #e63946;
+    flex-direction: column;
+    width: 200px;
+    height: calc(100% - 60px);
+    padding-top: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  nav a {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  #menu-toggle:checked + label + nav {
+    transform: translateX(0);
+  }
+  label[for="menu-toggle"] {
+    display: flex;
+  }
+  main {
+    margin-top: 70px;
+    padding: 1rem;
+  }
+  .gallery-img {
+    width: 100%;
+    margin: 1% 0 1% 0;
+  }
+}
